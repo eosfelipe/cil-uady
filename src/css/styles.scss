@@ -10,12 +10,17 @@ $brown: #757763;
 $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
 
+//uady cil colors
+$yellow: #e0910e;
+$blue: #1b3041;
+
 // Update Bulma's global variables
 $family-sans-serif: "Roboto", sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
+$primary: $blue;
+$link: $blue;
+$warning: $yellow;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
@@ -30,6 +35,13 @@ $input-shadow: none;
 }
 #calendar {
     padding: 15px;
+}
+#logo {
+    max-height: 72px !important;
+}
+.has-margin-10 {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 // Import only what you need from Bulma
