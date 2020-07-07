@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -36,6 +37,10 @@ module.exports = {
                     name: '[sha512:hash:base64:7].[ext]'
                 }
             },
+            {
+                test: /\.html$/i,
+                loader: 'html-loader',
+            },
         ]
     },
     plugins: [
@@ -52,6 +57,7 @@ module.exports = {
                 removeStyleLinkTypeAttributes: true,
                 useShortDoctype: true
             }
-        })
+        }),
+        new FaviconsWebpackPlugin('./src/favicon.svg')
     ]
 };
