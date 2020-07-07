@@ -1,5 +1,6 @@
 require('./css/styles.scss');
 require('./fa/all.min.js');
+import Api from './Api';
 const logo = require('./img/logo.png');
 const nosotrosImg = require('./img/nosotros.jpg');
 
@@ -71,6 +72,20 @@ contactForm.addEventListener('submit', (e) => {
     const formData = new FormData(e.target);
     // console.log(formData);
     if (!error) {
+        
+        // const data = {};
+        // formData.forEach((value, key) => {data[key] = value});
+        // const json = JSON.stringify(data);
+        
+        
+        const queryString = new URLSearchParams(formData).toString();
+        
+        Api.END_POINT_CONTACT += queryString;
+
+        fetch(url)
+        .then(response => response.json())
+        .catch(error => console.error('Error:', error))
+        .then(json => console.log(json))
         contactForm.reset();
     }
 });
