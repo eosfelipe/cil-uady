@@ -50,15 +50,12 @@ $input-shadow: none;
 .has-text-shadow {
     text-shadow: 0px 2px 1px rgba(150, 150, 150, 1);
 }
-.banner {
-    background: url('/src/img/home.jpg') no-repeat center center/cover;
-}
 #numbers {
     background: url('/src/img/numbers.jpg') no-repeat center center/cover;
 }
 .has-text-cursive {
     font-family: 'Mr Dafoe', cursive;
-    font-size: 4rem !important;
+    font-size: 5em !important;
 }
 .textr {
     line-height: 1.8;
@@ -112,6 +109,41 @@ span.icon.is-right {
 small.help {
     visibility: hidden;
 }
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    z-index: 1;
+    background: linear-gradient(to top, #1b3041, transparent);
+}
+.banner .content-custom {
+    position: relative;
+    max-width: 900px;
+    z-index: 1;
+}
+.banner .content-custom h2 {
+    font-size: 3em;
+}
+.fitBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // opacity: 0.8;
+}
 
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/sass/utilities/_all.sass";
@@ -121,3 +153,35 @@ small.help {
 @import "../../node_modules/bulma/sass/components/_all.sass";
 @import "../../node_modules/bulma/sass/layout/_all.sass";
 @import "../../node_modules/bulma/sass/grid/_all.sass";
+
+@include until($desktop) {
+    .navbar-menu {
+      display: block;
+      opacity: 0;
+  
+      position: absolute;   /* or float: left; width: 100%;*/
+      left: 0;
+      right: 0;
+  
+      transform: translateY(-50%);
+      transition: all .4s ease-in-out;
+      pointer-events: none;
+    }
+  
+    .navbar-menu.is-active {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+}
+
+@import "../../node_modules/bulma-carousel/src/sass/index.sass";
+
+*:focus {
+    outline: none;
+}
+.slider-navigation-previous,
+.slider-navigation-next {
+    margin-left: 10px;
+    margin-right: 10px;
+}

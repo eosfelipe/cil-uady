@@ -1,6 +1,9 @@
 require('./css/styles.scss');
 require('./fa/all.min.js');
+import bulmaCarousel from '../node_modules/bulma-carousel/dist/js/bulma-carousel.min.js';
 import Api from './Api';
+import config from './firebase';
+
 const logo = require('./img/logo.png');
 const nosotrosImg = require('./img/nosotros.jpg');
 
@@ -11,6 +14,65 @@ img2.src = nosotrosImg.default;
 
 const ano = document.querySelector('#ano');
 ano.innerHTML = new Date().getFullYear();
+
+const heroCarousel = document.querySelector('#carouselHome');
+
+document.addEventListener('DOMContentLoaded', async () => {
+
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+
+            });
+        });
+    }
+
+    const home = await getSnapshot('home');
+
+    // console.log(home.val());
+    // home.val().forEach( item => {
+    //     console.log(item);
+
+    //     heroCarousel.innerHTML = `
+    //     <div class="item-1 banner">
+    //         <img src="${data.img}" class="fitBg" alt="">
+    //         <div class="content-custom has-text-centered">
+    //             <h2 class="has-text-light has-text-shadow">${data.title}</h2>
+    //             <h1 class="is-size-1 has-text-warning has-text-weight-bold">${data.subtitle}</h1>
+    //             <h2 class="has-text-primary has-text-cursive">${data.subtitle2}</h2>
+    //             <button class="button is-primary is-outlined is-medium">
+    //                 ${data.link}
+    //             </button>
+    //         </div>
+    //     </div>`;
+    // });
+
+    // bulmaCarousel.attach(heroCarousel, {
+    //     slidesToScroll: 1,
+    //     slidesToshow: 3,
+    //     autoplay: true,
+    //     infinite: true
+    // });
+    counterInit();
+});
+/* FUNCTIONS FIREBASE */
+firebase.initializeApp(config);
+const db = firebase.database();
+const getSnapshot = (page) => db.ref(`/${page}/`).once('value');
 
 /* COUNTER SECTION */
 function counterInit() {
@@ -28,14 +90,11 @@ function counterInit() {
                 counter.innerText = Math.ceil(count + inc);
                 setTimeout(updateCount, 1);
                 // console.log(count);
-            } else {
-                count.innerText = target;
             }
         }
         updateCount();
     });
 }
-counterInit();
 /*END*/
 
 /*  NEWSLETTER SECTION */
@@ -52,6 +111,7 @@ newsletterForm.addEventListener('submit', (e) => {
     } else {
         small.style.visibility = 'hidden';
         console.log('valid email');
+        //fetch to end_point manage newsletter
         newsletterForm.reset();
     }
 });
@@ -72,20 +132,15 @@ contactForm.addEventListener('submit', (e) => {
     const formData = new FormData(e.target);
     // console.log(formData);
     if (!error) {
-        
-        // const data = {};
-        // formData.forEach((value, key) => {data[key] = value});
-        // const json = JSON.stringify(data);
-        
-        
-        const queryString = new URLSearchParams(formData).toString();
-        
+        const dt = new Date().toJSON().slice(0, 19).replace('T', ' ');
+        let queryString = new URLSearchParams(formData).toString();
+        queryString += `&date_time=${dt}`;
         Api.END_POINT_CONTACT += queryString;
 
-        fetch(url)
-        .then(response => response.json())
-        .catch(error => console.error('Error:', error))
-        .then(json => console.log(json))
+        fetch(Api.END_POINT_CONTACT)
+            .then(response => response.json())
+            .catch(error => console.error('Error:', error))
+            .then(json => console.log(json))
         contactForm.reset();
     }
 });

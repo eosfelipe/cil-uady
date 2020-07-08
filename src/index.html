@@ -101,8 +101,39 @@
         </div>
     </nav>
 
-    <section class="hero is-link is-fullheight-with-navbar banner">
-        <div class="hero-body">
+    <section class="hero is-fullheight-with-navbar has-carousel">
+        <div id="carouselHome" class="hero-carousel">
+            <div class="item-1 banner">
+                <img src="img/nosotros.jpg" class="fitBg" alt="">
+                <div class="content-custom has-text-centered">
+                    <h2 class="has-text-light has-text-shadow">Convocatorias abiertas</h2>
+                    <h1 class="is-size-1 has-text-warning has-text-weight-bold">Curso de idiomas</h1>
+                    <h2 class="has-text-primary has-text-cursive">Regulares</h2>
+                    <button class="button is-primary is-outlined is-medium">
+                        Informes
+                    </button>
+                </div>
+            </div>
+            <div class="item-2 banner">
+                <img src="img/numbers.jpg" class="fitBg" alt="">
+                <div class="content-custom has-text-centered">
+                    <h2>Title 2</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet magni distinctio et dolores
+                        veniam, cupiditate ut veritatis minima doloremque quibusdam possimus ducimus quos quisquam sunt
+                        quia aliquid deleniti rem? Ab?</p>
+                </div>
+            </div>
+            <div class="item-3 banner">
+                <img src="img/nosotros.jpg" class="fitBg" alt="">
+                <div class="content-custom has-text-centered">
+                    <h2>Title 3</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet magni distinctio et dolores
+                        veniam, cupiditate ut veritatis minima doloremque quibusdam possimus ducimus quos quisquam sunt
+                        quia aliquid deleniti rem? Ab?</p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="hero-body">
             <div class="container has-text-centered">
                 <h2 class="is-size-3 has-text-light has-text-shadow">Convocatorias abiertas</h2>
                 <h1 class="is-size-1 has-text-warning has-text-weight-bold">Curso de idiomas</h1>
@@ -111,7 +142,7 @@
                     Informes
                 </button>
             </div>
-        </div>
+        </div> -->
     </section>
 
     <section class="hero is-primary">
@@ -264,7 +295,8 @@
                         <form id="newsletterForm">
                             <div class="field is-grouped is-normal">
                                 <p class="control is-expanded">
-                                    <input id="newsletterInput" name="newsletterInput" class="input" type="text" placeholder="nombre@dominio.com" required>
+                                    <input id="newsletterInput" name="newsletterInput" class="input" type="text"
+                                        placeholder="nombre@dominio.com" required>
                                     <small class="help is-danger">error</small>
                                 </p>
                                 <p class="control">
@@ -375,7 +407,8 @@
                         </div>
                         <div class="field">
                             <div class="control has-icons-left has-icons-right">
-                                <input id="email" name="email" class="input" type="email" placeholder="Correo electrónico">
+                                <input id="email" name="email" class="input" type="email"
+                                    placeholder="Correo electrónico">
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-envelope"></i>
                                 </span>
@@ -416,7 +449,8 @@
 
     <footer class="footer">
         <div class="content has-text-centered">
-            <p>© <span id="ano"></span> UADY. | Esta página puede ser reproducida con fines no lucrativos, siempre y cuando no se mutile,
+            <p>© <span id="ano"></span> UADY. | Esta página puede ser reproducida con fines no lucrativos, siempre y
+                cuando no se mutile,
                 se cite la fuente completa y su dirección electrónica, de otra forma requiere permiso previo por escrito
                 de la institución.</p>
             <a class="is-link" href="https://bulma.io">
@@ -426,6 +460,8 @@
         </div>
     </footer>
 
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
 </body>
 
 </html>
