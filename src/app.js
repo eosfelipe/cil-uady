@@ -5,12 +5,15 @@ import Api from './Api';
 import config from './firebase';
 
 const logo = require('./img/logo.png');
-const nosotrosImg = require('./img/nosotros.jpg');
+const logoUady = require('./favicon.svg');
+const nosotrosImg = require('./img/home_2.jpg');
 
 const img = document.querySelector('#logo');
 const img2 = document.querySelector('#nosotros-img');
+const img3 = document.querySelector('#logoUady');
 img.src = logo.default;
 img2.src = nosotrosImg.default;
+img3.src = logoUady.default;
 
 const ano = document.querySelector('#ano');
 ano.innerHTML = new Date().getFullYear();
@@ -41,32 +44,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    const home = await getSnapshot('home');
+    const response = await getSnapshot('home');
+    const home = response.val();
+    home.carousel.forEach((item, key) => {
+        heroCarousel.innerHTML += `
+        <div class="item-${key} banner">
+            <img src="${item.img}" class="fitBg" alt="">
+            <div class="content-custom has-text-centered">
+                <h2 class="has-text-light has-text-shadow">${item.title}</h2>
+                <h1 class="is-size-1 has-text-warning has-text-weight-bold">${item.subtitle}</h1>
+                <h2 class="has-text-primary has-text-cursive">${item.subtitle2}</h2>
+                <button class="button is-warning is-medium">
+                    ${item.link}
+                </button>
+            </div>
+        </div>`;
+    })
 
-    // console.log(home.val());
-    // home.val().forEach( item => {
-    //     console.log(item);
-
-    //     heroCarousel.innerHTML = `
-    //     <div class="item-1 banner">
-    //         <img src="${data.img}" class="fitBg" alt="">
-    //         <div class="content-custom has-text-centered">
-    //             <h2 class="has-text-light has-text-shadow">${data.title}</h2>
-    //             <h1 class="is-size-1 has-text-warning has-text-weight-bold">${data.subtitle}</h1>
-    //             <h2 class="has-text-primary has-text-cursive">${data.subtitle2}</h2>
-    //             <button class="button is-primary is-outlined is-medium">
-    //                 ${data.link}
-    //             </button>
-    //         </div>
-    //     </div>`;
-    // });
-
-    // bulmaCarousel.attach(heroCarousel, {
-    //     slidesToScroll: 1,
-    //     slidesToshow: 3,
-    //     autoplay: true,
-    //     infinite: true
-    // });
+    bulmaCarousel.attach(heroCarousel, {
+        slidesToScroll: 1,
+        slidesToshow: 3,
+        autoplay: true,
+        infinite: true,
+        duration: 2000,
+        autoplaySpeed: 4000
+    });
     counterInit();
 });
 /* FUNCTIONS FIREBASE */
