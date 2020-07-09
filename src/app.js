@@ -7,13 +7,16 @@ import config from './firebase';
 const logo = require('./img/logo.png');
 const logoUady = require('./favicon.svg');
 const nosotrosImg = require('./img/home_2.jpg');
+const numerosImg = require('./img/numbers.jpg');
 
 const img = document.querySelector('#logo');
 const img2 = document.querySelector('#nosotros-img');
 const img3 = document.querySelector('#logoUady');
+const numbersImg = document.querySelector('#numbers');
 img.src = logo.default;
 img2.src = nosotrosImg.default;
 img3.src = logoUady.default;
+numbersImg.setAttribute('style', `background: url("${numerosImg.default}") no-repeat center center/cover`);
 
 const ano = document.querySelector('#ano');
 ano.innerHTML = new Date().getFullYear();
