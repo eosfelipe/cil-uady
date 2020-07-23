@@ -8,7 +8,7 @@ module.exports = {
     context: __dirname,
     entry: './src/app.js',
     output: {
-        path: resolve(__dirname, 'dist'),
+        path: resolve(__dirname, 'docs'),
         publicPath: '/',
         filename: 'js/bundle.js'
     },
