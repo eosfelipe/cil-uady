@@ -187,6 +187,10 @@ small.help {
       transform: none;
       pointer-events: auto;
     }
+
+    .buttons a.has-text-light {
+        color: #1b3041 !important;
+    }
 }
 
 @import "../../node_modules/bulma-carousel/src/sass/index.sass";
@@ -212,3 +216,54 @@ html {
 ::-webkit-scrollbar-thumb {
     background-color: $blue;
 }
+.calendar {
+    position: relative;
+    background: #fff;
+    text-align: center;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+}
+.calendar #monthName {
+    position: relative;
+    padding: 10px;
+    background: #e0910e;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+}
+.calendar #dayName {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #565656;
+}
+.calendar #dayNumber {
+    margin-top: 0px;
+    line-height: 1em;
+    font-size: 80px;
+    font-weight: 700;
+    color: #565656;
+}
+.calendar #year {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #565656;
+}
+.media {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.media .media-left {
+    min-width: 200px;
+}
+@media (max-width: 600px) {
+    .media {
+        flex-flow: column wrap;
+    }
+    .media-left {
+        margin-bottom: 30px;
+    }
+  }

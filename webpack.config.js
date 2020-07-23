@@ -1,13 +1,15 @@
-const path = require('path');
+const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
     mode: 'development',
+    context: __dirname,
     entry: './src/app.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: resolve(__dirname, 'dist'),
+        publicPath: '/',
         filename: 'js/bundle.js'
     },
     module: {
@@ -48,6 +50,7 @@ module.exports = {
             filename: 'css/styles.css'
         }),
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: './src/index.html',
             minify: {
                 collapseWhitespace: true,
@@ -58,6 +61,28 @@ module.exports = {
                 useShortDoctype: true
             }
         }),
-        new FaviconsWebpackPlugin('./src/favicon.svg')
+        new FaviconsWebpackPlugin({
+            logo: './src/favicon.svg',
+            cache: '.wwp-cache',
+            mode: 'webapp',
+            prefix: 'assets/',
+            favicons: {
+                appName: 'CIL-UADY',
+                appDescription: 'Sitio de la Coordinación del Centro Institucional de Lenguas | UADY. La UADY se encuentra en Mérida, Yucatán, México',
+                developerName: 'eosfelipe',
+                developerURL: 'https://github.com/eosfelipe',
+                dir: 'auto',
+                lang: 'en-ES',
+                background: '#f5f5f5',
+                theme_color: '#e0910e',
+                appleStatusBarStyle: 'black-translucent',
+                version: '1.0.0',
+                logging: true,
+                icons: {
+                    coast: false,
+                    yandex: false
+                }
+            }
+        })
     ]
 };
