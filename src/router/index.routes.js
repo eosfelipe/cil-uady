@@ -3,14 +3,13 @@ import { pages } from '../controllers/index';
 const router = async (route) => {
     let content = document.getElementById('root');
     content.innerHTML = '';
-
-    console.log(route);
+    
     switch (route) {
         case '#/': {
             return content.appendChild(pages.home());
         }
         case '#/about': {
-            return content.appendChild(pages.about());
+            return content.appendChild(await pages.about());
         }
         case '#/services': {
             return content.appendChild(pages.services());

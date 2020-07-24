@@ -18,7 +18,6 @@ ano.innerHTML = new Date().getFullYear();
 const heroCarousel = document.querySelector('#carouselHome');
 
 document.addEventListener('DOMContentLoaded', async () => {
-
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
@@ -66,18 +65,41 @@ document.addEventListener('DOMContentLoaded', async () => {
         duration: 2000,
         autoplaySpeed: 4000
     });
+    activeNavbar();
     counterInit();
+    loading();
 });
 
 const init = () => {
     router(window.location.hash);
     window.addEventListener('hashchange', () => {
         router(window.location.hash);
+        activeNavbar();
         counterInit();
     });
 };
 
+const loading = () => {
+    const pre = document.getElementById('preloader');
+    setTimeout(() => {
+        pre.classList.add('hide');
+        pre.classList.remove('show');
+    }, 3000);
+}
+
 window.addEventListener('load', init);
+
+function activeNavbar() {
+    const active = document.querySelectorAll('.navbar-start .navbar-item');
+    active.forEach(item => {
+        // console.log(item.getAttribute('href'), window.location.hash);
+        if (item.getAttribute('href') === window.location.hash) {
+            item.classList.add('is-active');
+        } else {
+            item.classList.remove('is-active');
+        }
+    })
+}
 
 /* COUNTER SECTION */
 function counterInit() {

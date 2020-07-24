@@ -2,7 +2,7 @@
 
 // Import a Google Font
 // @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Mr+Dafoe&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&family=Mr+Dafoe&display=swap');
 
 // Set your brand colors
 $purple: #8A4D76;
@@ -16,7 +16,7 @@ $yellow: #e0910e;
 $blue: #1b3041;
 
 // Update Bulma's global variables
-$family-sans-serif: 'Libre Baskerville', serif;
+$family-sans-serif: 'Roboto', serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary: $blue;
@@ -259,6 +259,113 @@ html {
 .media .media-left {
     min-width: 200px;
 }
+a.navbar-item:hover {
+    text-decoration: underline;
+}
+.is-active {
+    text-decoration: underline !important;
+}
+#root {
+    margin: 50px auto;
+}
+#preloader {
+    position: fixed;
+    z-index: 9999;
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.show {
+    visibility: visible;
+}
+.hide {
+    visibility: hidden;
+}
+.self-building-square-spinner, .self-building-square-spinner * {
+    box-sizing: border-box;
+  }
+
+  .self-building-square-spinner {
+    height: 40px;
+    width: 40px;
+    top: calc( -10px * 2 / 3);
+  }
+
+  .self-building-square-spinner .square {
+    height: 10px;
+    width: 10px;
+    top: calc( -10px * 2 / 3);
+    margin-right: calc(10px / 3);
+    margin-top: calc(10px / 3);
+    background: $blue;
+    float: left;
+    position:relative;
+    opacity: 0;
+    animation: self-building-square-spinner 6s infinite;
+  }
+
+  .self-building-square-spinner .square:nth-child(1) {
+    animation-delay: calc(300ms * 6);
+  }
+
+  .self-building-square-spinner .square:nth-child(2) {
+    animation-delay: calc(300ms * 7);
+  }
+
+  .self-building-square-spinner .square:nth-child(3) {
+    animation-delay: calc(300ms * 8);
+  }
+
+  .self-building-square-spinner .square:nth-child(4) {
+    animation-delay: calc(300ms * 3);
+  }
+
+  .self-building-square-spinner .square:nth-child(5) {
+    animation-delay: calc(300ms * 4);
+  }
+
+  .self-building-square-spinner .square:nth-child(6) {
+    animation-delay: calc(300ms * 5);
+  }
+
+  .self-building-square-spinner .square:nth-child(7) {
+    animation-delay: calc(300ms * 0);
+  }
+
+  .self-building-square-spinner .square:nth-child(8) {
+    animation-delay: calc(300ms * 1);
+  }
+
+  .self-building-square-spinner .square:nth-child(9) {
+    animation-delay: calc(300ms * 2);
+  }
+
+  .self-building-square-spinner .clear{
+    clear: both;
+  }
+
+  @keyframes self-building-square-spinner {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+      top: 0;
+    }
+    50.9% {
+      opacity: 1;
+      top: 0;
+    }
+    55.9% {
+      opacity: 0;
+      top: inherit;
+    }
+  }
 @media (max-width: 600px) {
     .media {
         flex-flow: column wrap;
