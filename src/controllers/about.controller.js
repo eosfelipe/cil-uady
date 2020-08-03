@@ -16,7 +16,7 @@ export default async () => {
             <p class="textr">${data[index].text}</p>
         </div>
         <div class="column is-6">
-            <figure class="image is-square"><img src="${data[index].url}"></figure>
+            <img class="image" src="${data[index].url}">
         </div>`;
     });
 
