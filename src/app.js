@@ -18,6 +18,10 @@ ano.innerHTML = new Date().getFullYear();
 const heroCarousel = document.querySelector('#carouselHome');
 
 document.addEventListener('DOMContentLoaded', async () => {
+    if(window.location.pathname === '/'){
+        const href = window.location.href;
+        window.location.replace(href + '#/');
+    }
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
