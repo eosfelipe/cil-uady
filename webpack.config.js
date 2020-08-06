@@ -4,12 +4,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     context: __dirname,
     entry: './src/app.js',
     output: {
         path: resolve(__dirname, 'docs'),
-        publicPath: '/',
+        publicPath: '/cil-uady/',
         filename: 'js/bundle.js'
     },
     module: {
