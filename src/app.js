@@ -1,7 +1,9 @@
 require('./css/styles.scss');
 require('./fa/all.min.js');
 import bulmaCarousel from '../node_modules/bulma-carousel/dist/js/bulma-carousel.min.js';
-import { router } from './router/index.routes';
+import {
+    router
+} from './router/index.routes';
 import Api from './Api';
 
 const logo = require('./img/logo.png');
@@ -18,9 +20,17 @@ ano.innerHTML = new Date().getFullYear();
 const heroCarousel = document.querySelector('#carouselHome');
 
 document.addEventListener('DOMContentLoaded', async () => {
-    if(window.location.pathname === '/'){
-        const href = window.location.href;
-        window.location.replace(href + '#/');
+    // if(window.location.pathname === '/'){
+    //     const href = window.location.href;
+    //     window.location.replace(href + '#/');
+    // }
+    // const route = window.location.href.split('/');
+    // if(route.length > 2){
+
+    // }
+    if (window.location.hash === '') {
+        const location = window.location.href;
+        window.location.replace(location + '#/');
     }
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -78,6 +88,8 @@ const init = () => {
     router(window.location.hash);
     window.addEventListener('hashchange', () => {
         router(window.location.hash);
+        document.querySelector('#navbarMenu').classList.toggle('is-active');
+        document.querySelector('.navbar-burger').classList.toggle('is-active');
         activeNavbar();
         counterInit();
     });
@@ -96,7 +108,6 @@ window.addEventListener('load', init);
 function activeNavbar() {
     const active = document.querySelectorAll('.navbar-start .navbar-item');
     active.forEach(item => {
-        // console.log(item.getAttribute('href'), window.location.hash);
         if (item.getAttribute('href') === window.location.hash) {
             item.classList.add('is-active');
         } else {
@@ -147,5 +158,3 @@ function counterInit() {
 //     }
 // });
 /* END */
-
-
