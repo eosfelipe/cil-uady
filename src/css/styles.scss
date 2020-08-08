@@ -2,7 +2,23 @@
 
 // Import a Google Font
 // @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&family=Mr+Dafoe&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&family=Mr+Dafoe&display=swap');
+@font-face {
+    font-family: 'effra_stdregular';
+    src: url('../font/effra_std_rg-webfont.woff2') format('woff2'),
+         url('../font/effra_std_rg-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'effra_stdheavy';
+    src: url('../font/effra_std_he-webfont.woff2') format('woff2'),
+         url('../font/effra_std_he-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 // Set your brand colors
 $purple: #8A4D76;
@@ -16,8 +32,7 @@ $yellow: #e0910e;
 $blue: #1b3041;
 
 // Update Bulma's global variables
-$family-sans-serif: 'Roboto',
-serif;
+$family-sans-serif: 'effra_stdregular', sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary: $blue;
@@ -46,6 +61,7 @@ $input-shadow: none;
 
 #nosotros-img {
     width: 450px;
+    border-radius: 50%;
 }
 
 .has-margin-10 {
@@ -186,6 +202,9 @@ small.help {
 .text-uady {
     display: flex !important;
     align-items: center;
+}
+.logo-uady {
+    text-align: center;
 }
 
 // Import only what you need from Bulma
@@ -337,6 +356,9 @@ a.navbar-item:hover {
 .hide {
     visibility: hidden;
 }
+.bg-inf {
+    background: rgba(224, 145, 14, 0.10) !important;
+}
 
 // .image {
 //     width: 450px;
@@ -436,4 +458,8 @@ a.navbar-item:hover {
     .media-left {
         margin-bottom: 30px;
     }
+}
+.title, .heavy {
+    font-family: 'effra_stdheavy', sans-serif !important;
+    font-size: 2.5rem !important;
 }

@@ -74,7 +74,7 @@ export default async () => {
     const divAddresses = divElement.querySelector('#addresses');
     data.addresses.forEach(item => {
         divAddresses.innerHTML += `<div class="column is-6">
-        <h3 class="is-size-4 py-1">${item.title}</h3>
+        <h3 class="is-size-4 py-1 heavy">${item.title}</h3>
         <p>${item.address}<br>
             <strong>Teléfono:</strong><a href="tel:${item.phone}">${item.phone}</a> <br>
             <strong>Correo electrónico: </strong><a href="mailto:${item.email}">${item.email}</a>

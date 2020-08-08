@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const response = await Api.getSnapshot('home');
+    console.log(response);
     const home = response.val();
+    console.log(home);
     home.carousel.forEach((item, key) => {
         heroCarousel.innerHTML += `
         <div class="item-${key} banner">
@@ -69,9 +71,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </button>
             </div>
         </div>`;
-    })
+    });
 
-    bulmaCarousel.attach(heroCarousel, {
+
+    bulmaCarousel.attach('#carouselHome', {
         slidesToScroll: 1,
         slidesToshow: 3,
         autoplay: true,
@@ -79,6 +82,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         duration: 2000,
         autoplaySpeed: 4000
     });
+
+
     activeNavbar();
     counterInit();
     loading();

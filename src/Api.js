@@ -7,7 +7,10 @@ const db = firebase.database();
 const Api = {
     END_POINT_CONTACT: 'https://script.google.com/macros/s/AKfycbwav1RSD0XeugXF8NFmMRuUpNK1_SqVcv2oVadzb_W9aSpPu8g/exec?',
 
-    getSnapshot: (page) => db.ref(`/${page}/`).once('value')
+    getSnapshot: (page) => db.ref(`/${page}/`).once('value', function(snapshot){
+        const a = snapshot.exists();
+        console.log(a);
+    })
 }
 
 export default Api;

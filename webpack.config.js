@@ -1,10 +1,12 @@
-const { resolve } = require('path');
+const {
+    resolve
+} = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     context: __dirname,
     entry: './src/app.js',
     output: {
@@ -13,8 +15,7 @@ module.exports = {
         filename: 'js/bundle.js'
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -31,12 +32,17 @@ module.exports = {
                 ]
             },
             {
+                test: /\.(woff|woff2|eot|ttf)$/,
+                loader: 'url-loader?limit=100000'
+            },
+            {
                 test: /\.(png|svg|jpg|gif)$/,
                 loader: 'file-loader',
                 options: {
                     outputPath: 'img',
                     publicPath: 'img',
-                    name: '[sha512:hash:base64:7].[ext]'
+                    name: '[sha512:hash:base64:7].[ext]',
+
                 }
             },
             {
