@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div class="item-${key} banner">
             <img src="${item.img}" class="fitBg" alt="">
             <div class="content-custom has-text-centered">
-                <h2 class="has-text-light has-text-shadow">${item.title}</h2>
+                <h2 class="has-text-light">${item.title}</h2>
                 <h1 class="is-size-1 has-text-warning has-text-weight-bold">${item.subtitle}</h1>
                 <h2 class="has-text-primary has-text-cursive">${item.subtitle2}</h2>
                 <button class="button is-warning is-medium">
