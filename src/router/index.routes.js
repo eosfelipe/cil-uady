@@ -6,16 +6,16 @@ const router = async (route) => {
     
     switch (route) {
         case '#/': {
-            return content.appendChild(pages.home());
+            return content.appendChild(await pages.home());
         }
         case '#/about': {
             return content.appendChild(await pages.about());
         }
         case '#/services': {
-            return content.appendChild(pages.services());
+            return content.appendChild(await pages.services());
         }
         case '#/calls': {
-            return content.appendChild(pages.calls());
+            return content.appendChild(await pages.calls());
         }
         case '#/calendar': {
             return content.appendChild(pages.calendar());
