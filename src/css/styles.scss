@@ -334,7 +334,7 @@ a.navbar-item:hover {
 }
 
 #root {
-    margin: 50px auto;
+    margin: 0 auto 50px;
 }
 
 #preloader {
@@ -364,10 +364,10 @@ a.navbar-item:hover {
     background: rgba(224, 145, 14, 0.10) !important;
 }
 
-// .image {
-//     width: 450px;
-//     height: 450px;
-// }
+.image {
+    width: 450px;
+    border-radius: 50%;
+}
 
 .self-building-square-spinner,
 .self-building-square-spinner * {
@@ -466,6 +466,7 @@ a.navbar-item:hover {
 .title, .heavy {
     font-family: 'effra_stdheavy', sans-serif !important;
     font-size: 2.5rem !important;
+    color: $blue;
 }
 
 // NOT FOUND STYLES

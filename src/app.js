@@ -1,5 +1,6 @@
 require('./css/styles.scss');
 require('./fa/all.min.js');
+require('./js/scrollIt.js');
 import bulmaCarousel from '../node_modules/bulma-carousel/dist/js/bulma-carousel.min.js';
 import {
     router
