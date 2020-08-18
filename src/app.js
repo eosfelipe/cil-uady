@@ -6,6 +6,7 @@ import {
     router
 } from './router/index.routes';
 import Api from './Api';
+import viewHome from './views/home.html';
 
 const logo = require('./img/logo.png');
 const logoUady = require('./favicon.svg');
@@ -87,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     activeNavbar();
-    counterInit();
+    // counterInit();
     loading();
 });
 
@@ -98,7 +99,7 @@ const init = () => {
         document.querySelector('#navbarMenu').classList.toggle('is-active');
         document.querySelector('.navbar-burger').classList.toggle('is-active');
         activeNavbar();
-        counterInit();
+        // counterInit();
     });
 };
 
@@ -123,28 +124,31 @@ function activeNavbar() {
     })
 }
 
-/* COUNTER SECTION */
-function counterInit() {
-    const counters = document.querySelectorAll('.counter');
-    const speed = 2000;
+// /* COUNTER SECTION */
+// function counterInit() {
+//     const counters = document.querySelectorAll('.counter');
+//     const speed = 2000;
 
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
+//     console.log(counters);
+    
 
-            const inc = target / speed;
+//     counters.forEach(counter => {
+//         const updateCount = () => {
+//             const target = +counter.getAttribute('data-target');
+//             const count = +counter.innerText;
 
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(updateCount, 1);
-                // console.log(count);
-            }
-        }
-        updateCount();
-    });
-}
-/*END*/
+//             const inc = target / speed;
+
+//             if (count < target) {
+//                 counter.innerText = Math.ceil(count + inc);
+//                 setTimeout(updateCount, 1);
+//                 // console.log(count);
+//             }
+//         }
+//         updateCount();
+//     });
+// }
+// /*END*/
 
 function consoleHello() {
     const ua = navigator.userAgent.toLocaleLowerCase();

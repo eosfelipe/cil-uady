@@ -16,6 +16,8 @@ export default async () => {
     const divElement = document.createElement('div');
     divElement.innerHTML = view;
 
+    counterInit(divElement);
+
     const imgElement = divElement.querySelector('#nosotros-img');
     imgElement.src = nosotrosImg.default;
     const imgNumbers = divElement.querySelector('#numbers');
@@ -112,3 +114,29 @@ const compare = (a, b) => {
     }
     return comparison * -1;
 }
+
+/* COUNTER SECTION */
+function counterInit(el) {
+    const counters = el.querySelectorAll('.counter');
+    const speed = 2000;
+
+    // console.log(counters);
+    
+
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 1);
+                // console.log(count);
+            }
+        }
+        updateCount();
+    });
+}
+/*END*/
