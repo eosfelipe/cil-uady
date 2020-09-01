@@ -27,7 +27,7 @@ export default async () => {
         <div class="column is-4">
                     <div class="card">
                         <div class="card-image">
-                            <a data-scroll-nav="${index}"><img src="${element.url}"></a>
+                            <a data-scroll-nav="${index}"><img src="${element.url}" alt="${element.title}"></a>
                         </div>
                         <header class="card-header">
                             <p class="is-size-3 card-header-title heavy" style="color: #1b3041;">
@@ -36,7 +36,7 @@ export default async () => {
                         </header>
                         <div class="card-content">
                             <div class="content">
-                                ${element.text.substring(0, 140)}
+                                ${element.text.substring(0, 140)} ...
                             </div>
                         </div>
                     </div>

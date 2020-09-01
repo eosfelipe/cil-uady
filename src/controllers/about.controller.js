@@ -18,11 +18,11 @@ export default async () => {
             <p class="textr">${data[0].text}</p>
         </div>
         <div class="column is-6">
-            <img class="image" src="${data[0].url}">
+            <img class="image" src="${data[0].url}" alt="${data[0].title}">
         </div>`;
   row2.innerHTML = `
         <div class="column is-6">
-            <img class="image" src="${data[1].url}">
+            <img class="image" src="${data[1].url}" alt="${data[1].title}">
         </div>
         <div class="column is-6">
             <h1 class="title has-text-warning">${data[1].title}</h1>
@@ -34,7 +34,7 @@ export default async () => {
             <p class="textr">${data[2].text}</p>
         </div>
         <div class="column is-6">
-            <img class="image" src="${data[2].url}">
+            <img class="image" src="${data[2].url}" alt="${data[2].title}">
         </div>`;
 
   return divElement;
