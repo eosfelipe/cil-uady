@@ -6,6 +6,7 @@ import {
     router
 } from './router/index.routes';
 import Api from './Api';
+import viewHome from './views/home.html';
 
 const logo = require('./img/logo.png');
 const logoUady = require('./favicon.svg');
@@ -21,6 +22,7 @@ ano.innerHTML = new Date().getFullYear();
 const heroCarousel = document.querySelector('#carouselHome');
 
 document.addEventListener('DOMContentLoaded', async () => {
+    consoleHello();
     // if(window.location.pathname === '/'){
     //     const href = window.location.href;
     //     window.location.replace(href + '#/');
@@ -56,9 +58,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const response = await Api.getSnapshot('home');
-    console.log(response);
+    // console.log(response);
     const home = response.val();
-    console.log(home);
+    // console.log(home);
     home.carousel.forEach((item, key) => {
         heroCarousel.innerHTML += `
         <div class="item-${key} banner">
@@ -86,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     activeNavbar();
-    counterInit();
+    // counterInit();
     loading();
 });
 
@@ -97,7 +99,7 @@ const init = () => {
         document.querySelector('#navbarMenu').classList.toggle('is-active');
         document.querySelector('.navbar-burger').classList.toggle('is-active');
         activeNavbar();
-        counterInit();
+        // counterInit();
     });
 };
 
@@ -122,45 +124,48 @@ function activeNavbar() {
     })
 }
 
-/* COUNTER SECTION */
-function counterInit() {
-    const counters = document.querySelectorAll('.counter');
-    const speed = 2000;
+// /* COUNTER SECTION */
+// function counterInit() {
+//     const counters = document.querySelectorAll('.counter');
+//     const speed = 2000;
 
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
+//     console.log(counters);
+    
 
-            const inc = target / speed;
+//     counters.forEach(counter => {
+//         const updateCount = () => {
+//             const target = +counter.getAttribute('data-target');
+//             const count = +counter.innerText;
 
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(updateCount, 1);
-                // console.log(count);
-            }
+//             const inc = target / speed;
+
+//             if (count < target) {
+//                 counter.innerText = Math.ceil(count + inc);
+//                 setTimeout(updateCount, 1);
+//                 // console.log(count);
+//             }
+//         }
+//         updateCount();
+//     });
+// }
+// /*END*/
+
+function consoleHello() {
+    const ua = navigator.userAgent.toLocaleLowerCase();
+    const supported = /(chrome|firefox)/;
+
+    if(supported.test(ua.toLocaleLowerCase())) {
+        let dark = ['padding: 18px 5px 18px', 'background-color: #171718', 'color: #e74c3c'].join(';');
+
+        if(ua.indexOf('chrome') > -1 ) {
+            dark += ';';
+            dark += ['padding: 18px 5px 18px 40px', 'background-image: url()', 'background-position: 10px 9px', 'background-repeat: no-repeat', 'background-size: 30px 30px'].join(';');
         }
-        updateCount();
-    });
-}
-/*END*/
 
-/*  NEWSLETTER SECTION */
-// const newsletterForm = document.querySelector('#newsletterForm');
-// const newsletterInput = document.querySelector('#newsletterInput');
-// newsletterForm.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     const inputValue = newsletterInput.value.trim();
-//     const control = newsletterInput.parentElement;
-//     const small = control.querySelector('.help');
-//     if (!isEmail(inputValue)) {
-//         small.style.visibility = 'visible';
-//         small.innerHTML = 'Ingresa un correo electrónico válido';
-//     } else {
-//         small.style.visibility = 'hidden';
-//         console.log('valid email');
-//         //fetch to end_point manage newsletter
-//         newsletterForm.reset();
-//     }
-// });
-/* END */
+        const red = ['padding: 18px 5px 16px', 'background-color: #e74c3c', 'color: #ffffff'].join(';');
+        const spacer = ['background-color: transparent'].join(';');
+        const message = '%c Crafted with ❤ by MajorTom %c https://majortom.space %c';
+
+        console.log(message, dark, red, spacer);
+    } else if (window.console) console.log('Crafted with love by MajorTom - https://majortom.space');
+}
