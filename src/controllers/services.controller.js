@@ -30,7 +30,7 @@ export default async () => {
                             <a data-scroll-nav="${index}"><img src="${element.url}"></a>
                         </div>
                         <header class="card-header">
-                            <p class="is-size-3 card-header-title" style="color: #1b3041;">
+                            <p class="is-size-3 card-header-title heavy" style="color: #1b3041;">
                                 ${element.title}
                             </p>
                         </header>
