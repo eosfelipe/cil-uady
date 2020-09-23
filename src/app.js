@@ -19,18 +19,11 @@ img3.src = logoUady.default;
 const ano = document.querySelector('#ano');
 ano.innerHTML = new Date().getFullYear();
 
-const heroCarousel = document.querySelector('#carouselHome');
-
 document.addEventListener('DOMContentLoaded', async () => {
-    consoleHello();
-    // if(window.location.pathname === '/'){
-    //     const href = window.location.href;
-    //     window.location.replace(href + '#/');
-    // }
-    // const route = window.location.href.split('/');
-    // if(route.length > 2){
-
-    // }
+    // consoleHello();
+    const heroCarousel = document.querySelector('#carouselHome');
+    console.log(heroCarousel);
+    
     if (window.location.hash === '') {
         const location = window.location.href;
         window.location.replace(location + '#/');
@@ -60,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const response = await Api.getSnapshot('home');
     // console.log(response);
     const home = response.val();
-    // console.log(home);
+    console.log(home);
     home.carousel.forEach((item, key) => {
         heroCarousel.innerHTML += `
         <div class="item-${key} banner">
