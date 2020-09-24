@@ -4,7 +4,7 @@
   "description": "website",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "npm run clean && webpack --mode production",
     "server:dev": "webpack-dev-server",
     "clean": "rimraf dist docs -rf"
   },
