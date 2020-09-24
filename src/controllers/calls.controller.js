@@ -17,7 +17,7 @@ export default async () => {
     <li>
       <span class="tag is-primary">${element.date}</span>
       <a class="has-text-primary is-link is-size-4 card-header-title"
-        href="${element.url}">${element.title} <i class="fas fa-external-link-alt"></i></a>
+        href="${element.url}" target="_blank">${element.title} <i class="fas fa-external-link-alt"></i></a>
       <div class="notification is-warning is-light">${element.text}</div>
     </li>
     `;
