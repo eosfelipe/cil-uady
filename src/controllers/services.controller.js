@@ -46,6 +46,7 @@ export default async () => {
         <div data-scroll-index="${index}">
                 <h1 class="is-size-4 py-1 heavy">${element.title}</h1>
                 <p class="textr">${element.text}</p>
+                <p>&nbsp;</p>
             </div>
         `;
     });
