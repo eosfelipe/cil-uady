@@ -1,5 +1,5 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyAVHycQq4kL3CjwT4TqG0AlfufjWvPycVQ",
+    apiKey: "",
     authDomain: "cil-uady.firebaseapp.com",
     databaseURL: "https://cil-uady.firebaseio.com",
     projectId: "cil-uady",
